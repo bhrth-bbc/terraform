@@ -14,7 +14,7 @@ pipeline
 					withCredentials([file(credentialsId: 'public', variable: 'public')]) {
 						withCredentials([file(credentialsId: 'private', variable: 'private')]) {
 				sh 'terraform init -no-color'
-				sh 'terraform destroy -auto-approve -no-color -var "accesskey=$accesskey" -var "secretkey=$secretkey" -var "public=$public" -var "private=$private"'
+				sh 'terraform apply -auto-approve -no-color -var "accesskey=$accesskey" -var "secretkey=$secretkey" -var "public=$public" -var "private=$private"'
 			}
     		}
 				}
